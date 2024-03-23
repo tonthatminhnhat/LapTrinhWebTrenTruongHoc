@@ -1,0 +1,43 @@
+﻿@model SV20T1020493.Web.Models.PaginationSearchInput
+@{
+    ViewBag.Title = "Quản lý Shipper";
+}
+<div class="box box-primary">
+    <div class="box-body">
+        @* Form timf kiem *@
+        <form id="formSearch" action="~/Shipper/Search" method="get" data-container="#searchResult">
+            <div class="input-group">
+
+                <input name="PageSize" type="hidden" value="@Model.PageSize" />
+
+                <input name="searchValue" type="text" class="form-control"
+                       placeholder="Nhập tên Shiper cần tìm" value="@Model.SearchValue" />
+
+                <div class="input-group-btn">
+                    <button class="btn btn-info" type="submit" style="margin-right:10px">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                    <a href="~/Shipper/Create" class="btn btn-primary">
+                        <i class="fa fa-plus"></i>
+                        Bổ sung
+                    </a>
+                </div>
+
+            </div>
+        </form>
+        @* Hien thi thong tin *@
+        <div id="searchResult"></div>
+    </div>
+</div>
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $("#formSearch").submit(function (e) {
+                e.preventDefault();
+                doSearch(this, 1);
+                return;
+            });
+            doSearch("#formSearch", @Model.Page);
+        });
+    </script>
+}

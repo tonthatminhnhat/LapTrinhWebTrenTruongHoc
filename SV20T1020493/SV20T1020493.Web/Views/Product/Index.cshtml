@@ -1,0 +1,92 @@
+﻿@model SV20T1020493.Web.Models.ProductSearchInput
+@{
+    ViewBag.Title = "Quản lý mặt hàng";
+    int rowCount = 0;
+}
+
+<div class="box box-primary">
+    <div class="box-body">
+        @* Form timf kiem *@
+        <form id="formSearch" action="~/Product/Search" method="get" data-container="#searchResult">
+            <div class="row" style="margin-right:0px">
+                <div class="col-sm-3">
+
+                    <input name="PageSize" type="hidden" value="@Model.PageSize" />
+
+                    <select class="form-control" name="CategoryID" id="category" onchange="doSearch(this.form,@Model.Page)">
+                        <option value="0">-- Tất cả loại hàng --</option>
+
+                        @foreach (var item in SV20T1020493.BusinessLayers.CommonDataService.ListOfCategories(out rowCount, 1, 0, ""))
+                        {
+                            if (item.CategoryID == Model.CategoryID)
+                            {
+                                <option value="@item.CategoryID" selected>@item.CategoryName</option>
+                            }
+                            else
+                            {
+
+                                <option value="@item.CategoryID">@item.CategoryName</option>
+                            }
+                        }
+
+                    </select>
+                </div>
+                <div class="col-sm-3">
+                    <select class="form-control" name="SupplierID" id="supplier" onchange="doSearch(this.form,@Model.Page)">
+                        <option value="0">-- Tất cả nhà cung cấp --</option>
+                        @foreach (var item in SV20T1020493.BusinessLayers.CommonDataService.ListOfSuppliers(out rowCount, 1, 0, ""))
+                        {
+                            if (item.SupplierID == Model.SupplierID)
+                            {
+                                <option value="@item.SupplierID" selected>@item.SupplierName</option>
+                            }
+                            else
+                            {
+
+                                <option value="@item.SupplierID">@item.SupplierName</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="col-sm-6 input-group">
+                    <input name="searchValue" type="text" class="form-control"
+                           placeholder="Nhập tên mặt hàng cần tìm" value="@Model.SearchValue" />
+
+                    <div class="input-group-btn">
+                        <button class="btn btn-info" type="submit" style="margin-right:10px">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                        <a href="~/Product/Create" class="btn btn-primary">
+                            <i class="fa fa-plus"></i>
+                            Bổ sung
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+        @* Hien thi thong tin *@
+        <div id="searchResult"></div>
+    </div>
+</div>
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $("#formSearch").submit(function (e) {
+                e.preventDefault();
+                doSearch(this, 1);
+                return;
+            });
+            doSearch("#formSearch", @Model.Page);
+        });
+    </script>
+}
+
+
+
+
+
+
+
+
+

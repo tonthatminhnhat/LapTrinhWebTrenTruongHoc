@@ -1,0 +1,142 @@
+{
+  "format": 1,
+  "restore": {
+    "F:\\Noi Lam Viec\\Mon C#\\LapTrinhWeb\\SV20T1020493\\SV20T1020493.DataLayers\\SV20T1020493.DataLayers.csproj": {}
+  },
+  "projects": {
+    "F:\\Noi Lam Viec\\Mon C#\\LapTrinhWeb\\SV20T1020493\\SV20T1020493.DataLayers\\SV20T1020493.DataLayers.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Noi Lam Viec\\Mon C#\\LapTrinhWeb\\SV20T1020493\\SV20T1020493.DataLayers\\SV20T1020493.DataLayers.csproj",
+        "projectName": "SV20T1020493.DataLayers",
+        "projectPath": "F:\\Noi Lam Viec\\Mon C#\\LapTrinhWeb\\SV20T1020493\\SV20T1020493.DataLayers\\SV20T1020493.DataLayers.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "F:\\Noi Lam Viec\\Mon C#\\LapTrinhWeb\\SV20T1020493\\SV20T1020493.DataLayers\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "F:\\Noi Lam Viec\\Mon C#\\LapTrinhWeb\\SV20T1020493\\SV20T1020493.DomainModels\\SV20T1020493.DomainModels.csproj": {
+                "projectPath": "F:\\Noi Lam Viec\\Mon C#\\LapTrinhWeb\\SV20T1020493\\SV20T1020493.DomainModels\\SV20T1020493.DomainModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.28, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.1.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\Noi Lam Viec\\Mon C#\\LapTrinhWeb\\SV20T1020493\\SV20T1020493.DomainModels\\SV20T1020493.DomainModels.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Noi Lam Viec\\Mon C#\\LapTrinhWeb\\SV20T1020493\\SV20T1020493.DomainModels\\SV20T1020493.DomainModels.csproj",
+        "projectName": "SV20T1020493.DomainModels",
+        "projectPath": "F:\\Noi Lam Viec\\Mon C#\\LapTrinhWeb\\SV20T1020493\\SV20T1020493.DomainModels\\SV20T1020493.DomainModels.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "F:\\Noi Lam Viec\\Mon C#\\LapTrinhWeb\\SV20T1020493\\SV20T1020493.DomainModels\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

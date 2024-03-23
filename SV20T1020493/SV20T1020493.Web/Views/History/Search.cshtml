@@ -1,0 +1,107 @@
+﻿@model SV20T1020493.Web.Models.HistorySearchResult
+@{
+    Layout = null;
+}
+<div>
+    <p style="margin:10px 0 10px 0">
+        Có <strong>@Model.RowCount</strong> mặt hàng trong <strong>@Model.PageCount</strong>  trang
+    </p>
+    <div class="table-resonsive">
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr class="bg-primary">
+                    <th>Tên nhân viên</th>
+                    <th>Thời gian hành động</th>
+                    <th>Hành động</th>
+                    <th>Bảng thao tác</th>
+                    <th>Dữ liệu </th>
+                    <th style="width:80px"></th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.Data)
+            {
+                <tbody>
+                    <tr>
+
+                        <td>@item.EmployeeName</td>
+                        <td>@item.TimeChange</td>
+                        <td>@item.Work</td>
+                        <td>@item.TableName</td>
+                        <td>@item.Data</td>
+                        <td class="text-right">
+                            @if (item.Work.Trim()== "Delete")
+                            {
+                                <a href="#" onclick="confirmRestore(@item.TrashBinID)" class="btn btn-xs btn-info">
+                                    Khôi phục
+                                </a>
+                            }
+                            @if (item.Work.Trim()=="Update")
+                            {
+                                <a href="#" onclick="updateRestore(@item.TrashBinID)" class="btn btn-xs btn-info">
+                                    Hoàn tác
+                                </a>
+                            }
+                        </td>
+                    </tr>
+                </tbody>
+            }
+
+        </table>
+    </div>
+    @if (Model.PageCount != 1)
+    {
+        <div class="text-center">
+            <ul class="pagination">
+                @for (int p = 1; p <= Model.PageCount; p++)
+                {
+                    if (Model.Page == p)
+                    {
+                        <li class="active"><a href="#">@p</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="javascript:;" onclick="doSearch('#formSearch',@p)">@p</a></li>
+
+                        @*  <a href="~/Product?page=@p&searchValue=@Model.SearchValue&categoryID=@Model.CategoryID&supplierID=@Model.SupplierID">@p</a>
+            *@
+
+                    }
+                }
+            </ul>
+        </div>
+    }
+</div>
+<script>
+    function confirmRestore(id) {
+        if (confirm("Bạn có chắc muốn khôi phục?")) {
+            // Gửi yêu cầu AJAX để khôi phục
+            $.ajax({
+                url: "/History/Deleterestore/" + id,
+                type: "GET",
+                success: function (response) {
+                    alert(response);
+                    location.reload();
+                },
+                error: function () {
+                    alert("Khôi phục không thành công! Có thể đã khôi phục rồi hoặc cần phải khôi phục bảng tham chiếu của nó trước");
+                }
+            });
+        }
+    }
+     function updateRestore(id) {
+        if (confirm("Bạn có chắc muốn hoàn tác?")) {
+            // Gửi yêu cầu AJAX để khôi phục
+            $.ajax({
+                url: "/History/Updaterestore/" + id,
+                type: "GET",
+                success: function (response) {
+                    alert(response);
+                    location.reload();
+                },
+                error: function () {
+                    alert("Hoàn tác không thành công! lỗi khác");
+                }
+            });
+        }
+    }
+</script>
